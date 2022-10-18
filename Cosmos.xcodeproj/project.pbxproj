@@ -31,6 +31,8 @@
 		10C44A4728FE98B700D35C83 /* StarsBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4228FE98B700D35C83 /* StarsBig.swift */; };
 		10C44A4828FE98B700D35C83 /* SignLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4328FE98B700D35C83 /* SignLines.swift */; };
 		10C44A4928FE98B700D35C83 /* Stars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4428FE98B700D35C83 /* Stars.swift */; };
+		10C44A4D28FEA58C00D35C83 /* ParallaxBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4C28FEA58C00D35C83 /* ParallaxBackground.swift */; };
+		10C44A4F28FEA66400D35C83 /* debug_scrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		10C44A4228FE98B700D35C83 /* StarsBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsBig.swift; sourceTree = "<group>"; };
 		10C44A4328FE98B700D35C83 /* SignLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignLines.swift; sourceTree = "<group>"; };
 		10C44A4428FE98B700D35C83 /* Stars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stars.swift; sourceTree = "<group>"; };
+		10C44A4C28FEA58C00D35C83 /* ParallaxBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxBackground.swift; sourceTree = "<group>"; };
+		10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debug_scrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		10C44A2328FE987800D35C83 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				10C44A4B28FEA57B00D35C83 /* debug */,
 				10C44A2F28FE989800D35C83 /* AstrologicalSignProvider.swift */,
 				10C44A3028FE989800D35C83 /* InfiniteScrollView.swift */,
 				10C44A2E28FE989800D35C83 /* InfoPanel.swift */,
@@ -151,6 +156,15 @@
 				10C44A4128FE98B700D35C83 /* StarsSmall.swift */,
 			);
 			path = background;
+			sourceTree = "<group>";
+		};
+		10C44A4B28FEA57B00D35C83 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				10C44A4C28FEA58C00D35C83 /* ParallaxBackground.swift */,
+				10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */,
+			);
+			path = debug;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,12 +249,14 @@
 				10C44A4928FE98B700D35C83 /* Stars.swift in Sources */,
 				10C44A3B28FE98A200D35C83 /* MenuSelector.swift in Sources */,
 				10C44A3328FE989800D35C83 /* InfiniteScrollView.swift in Sources */,
+				10C44A4D28FEA58C00D35C83 /* ParallaxBackground.swift in Sources */,
 				10C44A3128FE989800D35C83 /* InfoPanel.swift in Sources */,
 				10C44A3C28FE98A200D35C83 /* Menu.swift in Sources */,
 				10C44A1028FE8EAA00D35C83 /* SceneDelegate.swift in Sources */,
 				10C44A4728FE98B700D35C83 /* StarsBig.swift in Sources */,
 				10C44A3D28FE98A200D35C83 /* MenuShadow.swift in Sources */,
 				10C44A4828FE98B700D35C83 /* SignLines.swift in Sources */,
+				10C44A4F28FEA66400D35C83 /* debug_scrollView.swift in Sources */,
 				10C44A4628FE98B700D35C83 /* StarsSmall.swift in Sources */,
 				10C44A4528FE98B700D35C83 /* StarsBackground.swift in Sources */,
 				10C44A3A28FE98A200D35C83 /* MenuRings.swift in Sources */,
@@ -391,7 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y8YG5F7WN9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cosmos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -420,7 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y8YG5F7WN9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cosmos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

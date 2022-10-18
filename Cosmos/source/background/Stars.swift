@@ -1,4 +1,8 @@
 import UIKit
 
-class Stars : UIViewController, UIScrollViewDelegate {
+let gapBetweenSigns: CGFloat = 10
+
+class Stars : UIView, UIScrollViewDelegate {
+    
+    
 }
