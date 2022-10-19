@@ -110,7 +110,7 @@ class AstrologicalSignProvider : NSObject {
 
         let big = [
             CGPointMake(58.0,-57.7),
-            CGPointMake(125.50,    -17.7)]
+            CGPointMake(125.50, -17.7)]
         sign.big = big
 
         let small = [
