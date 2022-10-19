@@ -33,6 +33,8 @@
 		10C44A4928FE98B700D35C83 /* Stars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4428FE98B700D35C83 /* Stars.swift */; };
 		10C44A4D28FEA58C00D35C83 /* ParallaxBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4C28FEA58C00D35C83 /* ParallaxBackground.swift */; };
 		10C44A4F28FEA66400D35C83 /* debug_scrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */; };
+		10C8B82928FFCCE000021E16 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8B82828FFCCE000021E16 /* Shape.swift */; };
+		10C8B82C290022D400021E16 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8B82B290022D400021E16 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		10C44A4428FE98B700D35C83 /* Stars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stars.swift; sourceTree = "<group>"; };
 		10C44A4C28FEA58C00D35C83 /* ParallaxBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxBackground.swift; sourceTree = "<group>"; };
 		10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debug_scrollView.swift; sourceTree = "<group>"; };
+		10C8B82828FFCCE000021E16 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		10C8B82B290022D400021E16 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		10C44A2328FE987800D35C83 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				10C8B82B290022D400021E16 /* AudioPlayer.swift */,
+				10C8B82728FFCCCD00021E16 /* shape */,
 				10C44A4B28FEA57B00D35C83 /* debug */,
 				10C44A2F28FE989800D35C83 /* AstrologicalSignProvider.swift */,
 				10C44A3028FE989800D35C83 /* InfiniteScrollView.swift */,
@@ -165,6 +171,14 @@
 				10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */,
 			);
 			path = debug;
+			sourceTree = "<group>";
+		};
+		10C8B82728FFCCCD00021E16 /* shape */ = {
+			isa = PBXGroup;
+			children = (
+				10C8B82828FFCCE000021E16 /* Shape.swift */,
+			);
+			path = shape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +264,7 @@
 				10C44A3B28FE98A200D35C83 /* MenuSelector.swift in Sources */,
 				10C44A3328FE989800D35C83 /* InfiniteScrollView.swift in Sources */,
 				10C44A4D28FEA58C00D35C83 /* ParallaxBackground.swift in Sources */,
+				10C8B82C290022D400021E16 /* AudioPlayer.swift in Sources */,
 				10C44A3128FE989800D35C83 /* InfoPanel.swift in Sources */,
 				10C44A3C28FE98A200D35C83 /* Menu.swift in Sources */,
 				10C44A1028FE8EAA00D35C83 /* SceneDelegate.swift in Sources */,
@@ -260,6 +275,7 @@
 				10C44A4628FE98B700D35C83 /* StarsSmall.swift in Sources */,
 				10C44A4528FE98B700D35C83 /* StarsBackground.swift in Sources */,
 				10C44A3A28FE98A200D35C83 /* MenuRings.swift in Sources */,
+				10C8B82928FFCCE000021E16 /* Shape.swift in Sources */,
 				10C44A3E28FE98A200D35C83 /* MenuIcons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

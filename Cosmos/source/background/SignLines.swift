@@ -1,28 +1,5 @@
 import UIKit
 
-class Line: CAShapeLayer {
-    var begin: CGPoint = .zero {
-        didSet {
-            self.setNeedsLayout()
-        }
-    }
-    var end: CGPoint = .zero {
-        didSet {
-            self.setNeedsLayout()
-        }
-    }
-    
-    override func layoutSublayers() {
-        super.layoutSublayers()
-        
-        let path = UIBezierPath()
-        path .move(to: begin)
-        path.addLine(to: end)
-        
-        self.path = path.cgPath
-    }
-}
-
 public class SignLines : InfiniteScrollView {
     var lines: [[Line]] = [[Line]]()
     var currentIndex: Int = 0
@@ -50,14 +27,12 @@ public class SignLines : InfiniteScrollView {
             for points in connections! {
                 let begin = CGPointApplyAffineTransform(points[0], t)
                 let end = CGPointApplyAffineTransform(points[1], t)
-                let line = Line()
+                let line = Line(begin: begin, end: end)
                 line.lineWidth = 1
                 line.strokeColor = UIColor.COSMOSprpl.cgColor
                 line.strokeEnd = 0
                 line.opacity = 0.4
-                line.begin = begin
-                line.end = end
-                self.layer.addSublayer(line)
+                self.addSubview(line)
                 currentLineSet.append(line)
             }
             lines.append(currentLineSet)

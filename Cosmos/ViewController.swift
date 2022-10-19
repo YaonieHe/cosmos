@@ -4,7 +4,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let debugView = Stars(frame: UIScreen.main.bounds)
+    let debugView = Menu(frame: UIScreen.main.bounds)
     // StarsSmall(frame: UIScreen.main.bounds, speed: 1.0)
     // SignLines(frame: UIScreen.main.bounds)
     // StarsBackground(frame: UIScreen.main.bounds, imageName: "6smallStar", starCount: 20, speed: 1.0)
@@ -15,11 +15,27 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .COSMOSbkgd
         self.view.addSubview(debugView)
+        
+//        let rings = MenuRings(frame: UIScreen.main.bounds)
+//        view.addSubview(rings)
+//        rings.thickRingOut()
+//        rings.thinRingOut()
+//        rings.dashedRingsOut()
+//        rings.revealHideDividingLins(target: 1)
+//
+//        let icons = MenuIcons(frame: UIScreen.main.bounds)
+//        view.addSubview(icons)
+//        icons.signIconsOut()
+//        icons.revealSignIcons()
+//
+//        let selector = MenuSelector(frame: CGRect(origin: .zero, size: CGSize(width: 80, height: 80)))
+//        selector.center = self.view.center
+//        view.addSubview(selector)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        debugView.goto(selection: 0)
+//        debugView.animOut()
     }
 
 }
@@ -35,4 +51,10 @@ extension UIColor {
     static let COSMOSprpl = UIColor(red:0.565, green: 0.075, blue: 0.996, alpha: 1.0)
     static let COSMOSblue = UIColor(red: 0.094, green: 0.271, blue: 1.0, alpha: 1.0)
     static let COSMOSbkgd = UIColor(red: 0.078, green: 0.118, blue: 0.306, alpha: 1.0)
+}
+
+func delayWork(time: CGFloat, _ work: @escaping () -> ()) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time, execute: DispatchWorkItem(block: {
+        work()
+    }))
 }

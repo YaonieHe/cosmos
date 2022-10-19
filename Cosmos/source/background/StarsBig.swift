@@ -36,15 +36,13 @@ public class StarsBig : InfiniteScrollView {
     func addDashes() {
         let points = (CGPoint(x: 0, y: frame.maxY), CGPoint(x: contentSize.width, y: frame.maxY))
         
-        let line = Line()
-        line.begin = points.0
-        line.end = points.1
+        let line = Line(begin: points.0, end: points.1)
         line.lineDashPattern = [2, 2]
         line.lineWidth = 10
         line.strokeColor = UIColor.COSMOSblue.cgColor
         line.opacity = 0.33
         line.lineCap = .butt
-        self.layer.addSublayer(line)
+        self.addSubview(line)
     }
     
     func addMarkers() {
@@ -53,14 +51,12 @@ public class StarsBig : InfiniteScrollView {
             let begin = CGPoint(x: dx, y: frame.height - 20)
             let end = CGPoint(x: dx, y: frame.height)
             
-            let marker = Line()
-            marker.begin = begin
-            marker.end = end
+            let marker = Line(begin: begin, end: end)
             marker.lineWidth = 2
             marker.strokeColor = UIColor.white.cgColor
             marker.lineCap = .butt
             marker.opacity = 0.33
-            self.layer.addSublayer(marker)
+            self.addSubview(marker)
         }
     }
     
