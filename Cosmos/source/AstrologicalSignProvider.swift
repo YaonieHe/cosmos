@@ -9,6 +9,12 @@ struct AstrologicalSign {
     var lines: [[CGPoint]]!
 }
 
+extension UIBezierPath {
+    func cosmos_addCurve(to endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
+        addCurve(to: controlPoint2, controlPoint1: endPoint, controlPoint2: controlPoint1)
+    }
+}
+
 class AstrologicalSignProvider : NSObject {
     static let sharedInstance = AstrologicalSignProvider()
     
@@ -51,12 +57,12 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(0, 0))
-        bezier.addCurve(to: CGPointMake(6.3, 0), controlPoint1:CGPointMake(6.4, 10.2), controlPoint2: CGPointMake(15.2, 10.2))
-        bezier.addCurve(to: CGPointMake(20.8, 10.2), controlPoint1:CGPointMake(25.4, 14.8), controlPoint2: CGPointMake(25.4, 20.4))
-        bezier.addCurve(to: CGPointMake(25.4, 26), controlPoint1:CGPointMake(20.8, 30.6), controlPoint2: CGPointMake(15.2, 30.6))
-        bezier.addCurve(to: CGPointMake(9.6, 30.6), controlPoint1:CGPointMake(5, 26), controlPoint2: CGPointMake(5, 20.4))
-        bezier.addCurve(to: CGPointMake(5, 14.8), controlPoint1:CGPointMake(9.6, 10.2), controlPoint2: CGPointMake(15.2, 10.2))
-        bezier.addCurve(to: CGPointMake(24, 10.2), controlPoint1:CGPointMake(24.1, 0), controlPoint2: CGPointMake(30.4, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(6.3, 0), controlPoint1:CGPointMake(6.4, 10.2), controlPoint2: CGPointMake(15.2, 10.2))
+        bezier.cosmos_addCurve(to: CGPointMake(20.8, 10.2), controlPoint1:CGPointMake(25.4, 14.8), controlPoint2: CGPointMake(25.4, 20.4))
+        bezier.cosmos_addCurve(to: CGPointMake(25.4, 26), controlPoint1:CGPointMake(20.8, 30.6), controlPoint2: CGPointMake(15.2, 30.6))
+        bezier.cosmos_addCurve(to: CGPointMake(9.6, 30.6), controlPoint1:CGPointMake(5, 26), controlPoint2: CGPointMake(5, 20.4))
+        bezier.cosmos_addCurve(to: CGPointMake(5, 14.8), controlPoint1:CGPointMake(9.6, 10.2), controlPoint2: CGPointMake(15.2, 10.2))
+        bezier.cosmos_addCurve(to: CGPointMake(24, 10.2), controlPoint1:CGPointMake(24.1, 0), controlPoint2: CGPointMake(30.4, 0))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -94,16 +100,16 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(2.8, 15.5))
-        bezier.addCurve(to: CGPointMake(1.1, 13.9), controlPoint1:CGPointMake(0, 11.6), controlPoint2: CGPointMake(0, 9))
-        bezier.addCurve(to: CGPointMake(0, 4), controlPoint1:CGPointMake(4, 0), controlPoint2: CGPointMake(9, 0))
-        bezier.addCurve(to: CGPointMake(14, 0), controlPoint1:CGPointMake(18, 4), controlPoint2: CGPointMake(18, 9))
+        bezier.cosmos_addCurve(to: CGPointMake(1.1, 13.9), controlPoint1:CGPointMake(0, 11.6), controlPoint2: CGPointMake(0, 9))
+        bezier.cosmos_addCurve(to: CGPointMake(0, 4), controlPoint1:CGPointMake(4, 0), controlPoint2: CGPointMake(9, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(14, 0), controlPoint1:CGPointMake(18, 4), controlPoint2: CGPointMake(18, 9))
         bezier.addLine(to: CGPointMake(18, 28.9))
 
         bezier.move(to: CGPointMake(18, 28.9))
         bezier.addLine(to: CGPointMake(18, 9))
-        bezier.addCurve(to: CGPointMake(18, 4), controlPoint1:CGPointMake(22, 0), controlPoint2: CGPointMake(27, 0))
-        bezier.addCurve(to: CGPointMake(32, 0), controlPoint1:CGPointMake(36, 4), controlPoint2: CGPointMake(36, 9))
-        bezier.addCurve(to: CGPointMake(36, 11.6), controlPoint1:CGPointMake(34.9, 13.9), controlPoint2: CGPointMake(33.2, 15.5))
+        bezier.cosmos_addCurve(to: CGPointMake(18, 4), controlPoint1:CGPointMake(22, 0), controlPoint2: CGPointMake(27, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(32, 0), controlPoint1:CGPointMake(36, 4), controlPoint2: CGPointMake(36, 9))
+        bezier.cosmos_addCurve(to: CGPointMake(36, 11.6), controlPoint1:CGPointMake(34.9, 13.9), controlPoint2: CGPointMake(33.2, 15.5))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -131,12 +137,12 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(26, 0))
-        bezier.addCurve(to: CGPointMake(26, 0), controlPoint1:CGPointMake(24.2, 5.3), controlPoint2: CGPointMake(13, 5.3))
-        bezier.addCurve(to: CGPointMake(1.8, 5.3), controlPoint1:CGPointMake(0, 0), controlPoint2: CGPointMake(0, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(26, 0), controlPoint1:CGPointMake(24.2, 5.3), controlPoint2: CGPointMake(13, 5.3))
+        bezier.cosmos_addCurve(to: CGPointMake(1.8, 5.3), controlPoint1:CGPointMake(0, 0), controlPoint2: CGPointMake(0, 0))
 
         bezier.move(to: CGPointMake(0.1, 34.7))
-        bezier.addCurve(to: CGPointMake(0.1, 34.7), controlPoint1:CGPointMake(1.9, 29.4), controlPoint2: CGPointMake(13.1, 29.4))
-        bezier.addCurve(to: CGPointMake(24.3, 29.4), controlPoint1:CGPointMake(26.1, 34.7), controlPoint2: CGPointMake(26.1, 34.7))
+        bezier.cosmos_addCurve(to: CGPointMake(0.1, 34.7), controlPoint1:CGPointMake(1.9, 29.4), controlPoint2: CGPointMake(13.1, 29.4))
+        bezier.cosmos_addCurve(to: CGPointMake(24.3, 29.4), controlPoint1:CGPointMake(26.1, 34.7), controlPoint2: CGPointMake(26.1, 34.7))
 
         bezier.move(to: CGPointMake(8.1, 5))
         bezier.addLine(to: CGPointMake(8.1, 29.6))
@@ -192,20 +198,20 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(0, 8.1))
-        bezier.addCurve(to: CGPointMake(1.9, 4.5), controlPoint1:CGPointMake(6.4, 0), controlPoint2: CGPointMake(14.2, 0))
-        bezier.addCurve(to: CGPointMake(22.1, 0), controlPoint1:CGPointMake(28.4, 4), controlPoint2: CGPointMake(28.4, 8.8))
-        bezier.addCurve(to: CGPointMake(28.4, 11.7), controlPoint1:CGPointMake(26.1, 14), controlPoint2: CGPointMake(23.2, 14))
-        bezier.addCurve(to: CGPointMake(20.3, 14), controlPoint1:CGPointMake(18, 11.7), controlPoint2: CGPointMake(18, 8.8))
-        bezier.addCurve(to: CGPointMake(18, 5.9), controlPoint1:CGPointMake(20.3, 3.6), controlPoint2: CGPointMake(23.2, 3.6))
-        bezier.addCurve(to: CGPointMake(26.1, 3.6), controlPoint1:CGPointMake(28.4, 5.9), controlPoint2: CGPointMake(28.4, 8.8))
+        bezier.cosmos_addCurve(to: CGPointMake(1.9, 4.5), controlPoint1:CGPointMake(6.4, 0), controlPoint2: CGPointMake(14.2, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(22.1, 0), controlPoint1:CGPointMake(28.4, 4), controlPoint2: CGPointMake(28.4, 8.8))
+        bezier.cosmos_addCurve(to: CGPointMake(28.4, 11.7), controlPoint1:CGPointMake(26.1, 14), controlPoint2: CGPointMake(23.2, 14))
+        bezier.cosmos_addCurve(to: CGPointMake(20.3, 14), controlPoint1:CGPointMake(18, 11.7), controlPoint2: CGPointMake(18, 8.8))
+        bezier.cosmos_addCurve(to: CGPointMake(18, 5.9), controlPoint1:CGPointMake(20.3, 3.6), controlPoint2: CGPointMake(23.2, 3.6))
+        bezier.cosmos_addCurve(to: CGPointMake(26.1, 3.6), controlPoint1:CGPointMake(28.4, 5.9), controlPoint2: CGPointMake(28.4, 8.8))
 
         bezier.move(to: CGPointMake(28.4, 21.3))
-        bezier.addCurve(to: CGPointMake(26.5, 24.9), controlPoint1:CGPointMake(22, 29.4), controlPoint2: CGPointMake(14.2, 29.4))
-        bezier.addCurve(to: CGPointMake(6.3, 29.4), controlPoint1:CGPointMake(0, 25.4), controlPoint2: CGPointMake(0, 20.6))
-        bezier.addCurve(to: CGPointMake(0, 17.7), controlPoint1:CGPointMake(2.3, 15.4), controlPoint2: CGPointMake(5.2, 15.4))
-        bezier.addCurve(to: CGPointMake(8.1, 15.4), controlPoint1:CGPointMake(10.4, 17.7), controlPoint2: CGPointMake(10.4, 20.6))
-        bezier.addCurve(to: CGPointMake(10.4, 23.5), controlPoint1:CGPointMake(8.1, 25.8), controlPoint2: CGPointMake(5.2, 25.8))
-        bezier.addCurve(to: CGPointMake(2.3, 25.8), controlPoint1:CGPointMake(0, 23.5), controlPoint2: CGPointMake(0, 20.6))
+        bezier.cosmos_addCurve(to: CGPointMake(26.5, 24.9), controlPoint1:CGPointMake(22, 29.4), controlPoint2: CGPointMake(14.2, 29.4))
+        bezier.cosmos_addCurve(to: CGPointMake(6.3, 29.4), controlPoint1:CGPointMake(0, 25.4), controlPoint2: CGPointMake(0, 20.6))
+        bezier.cosmos_addCurve(to: CGPointMake(0, 17.7), controlPoint1:CGPointMake(2.3, 15.4), controlPoint2: CGPointMake(5.2, 15.4))
+        bezier.cosmos_addCurve(to: CGPointMake(8.1, 15.4), controlPoint1:CGPointMake(10.4, 17.7), controlPoint2: CGPointMake(10.4, 20.6))
+        bezier.cosmos_addCurve(to: CGPointMake(10.4, 23.5), controlPoint1:CGPointMake(8.1, 25.8), controlPoint2: CGPointMake(5.2, 25.8))
+        bezier.cosmos_addCurve(to: CGPointMake(2.3, 25.8), controlPoint1:CGPointMake(0, 23.5), controlPoint2: CGPointMake(0, 20.6))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -237,16 +243,16 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(10.4, 19.6))
-        bezier.addCurve(to: CGPointMake(10.4, 16.7), controlPoint1:CGPointMake(8.1, 14.4), controlPoint2: CGPointMake(5.2, 14.4))
-        bezier.addCurve(to: CGPointMake(2.3, 14.4), controlPoint1:CGPointMake(0, 16.7), controlPoint2: CGPointMake(0, 19.6))
-        bezier.addCurve(to: CGPointMake(0, 22.5), controlPoint1:CGPointMake(2.3, 24.8), controlPoint2: CGPointMake(5.2, 24.8))
-        bezier.addCurve(to: CGPointMake(8.1, 24.8), controlPoint1:CGPointMake(10.4, 22.4), controlPoint2: CGPointMake(10.4, 19.6))
-        bezier.addCurve(to: CGPointMake(10.4, 14.8), controlPoint1:CGPointMake(6, 15), controlPoint2: CGPointMake(6, 9.1))
-        bezier.addCurve(to: CGPointMake(6, 4), controlPoint1:CGPointMake(10.1, 0), controlPoint2: CGPointMake(15.1, 0))
-        bezier.addCurve(to: CGPointMake(20.1, 0), controlPoint1:CGPointMake(24.2, 4.1), controlPoint2: CGPointMake(24.2, 9.1))
-        bezier.addCurve(to: CGPointMake(24.2, 17.2), controlPoint1:CGPointMake(17, 18.5), controlPoint2: CGPointMake(17, 25.6))
-        bezier.addCurve(to: CGPointMake(17, 28.5), controlPoint1:CGPointMake(19.3, 30.8), controlPoint2: CGPointMake(22.2, 30.8))
-        bezier.addCurve(to: CGPointMake(25.1, 30.8), controlPoint1:CGPointMake(27.4, 28.5), controlPoint2: CGPointMake(27.4, 25.6))
+        bezier.cosmos_addCurve(to: CGPointMake(10.4, 16.7), controlPoint1:CGPointMake(8.1, 14.4), controlPoint2: CGPointMake(5.2, 14.4))
+        bezier.cosmos_addCurve(to: CGPointMake(2.3, 14.4), controlPoint1:CGPointMake(0, 16.7), controlPoint2: CGPointMake(0, 19.6))
+        bezier.cosmos_addCurve(to: CGPointMake(0, 22.5), controlPoint1:CGPointMake(2.3, 24.8), controlPoint2: CGPointMake(5.2, 24.8))
+        bezier.cosmos_addCurve(to: CGPointMake(8.1, 24.8), controlPoint1:CGPointMake(10.4, 22.4), controlPoint2: CGPointMake(10.4, 19.6))
+        bezier.cosmos_addCurve(to: CGPointMake(10.4, 14.8), controlPoint1:CGPointMake(6, 15), controlPoint2: CGPointMake(6, 9.1))
+        bezier.cosmos_addCurve(to: CGPointMake(6, 4), controlPoint1:CGPointMake(10.1, 0), controlPoint2: CGPointMake(15.1, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(20.1, 0), controlPoint1:CGPointMake(24.2, 4.1), controlPoint2: CGPointMake(24.2, 9.1))
+        bezier.cosmos_addCurve(to: CGPointMake(24.2, 17.2), controlPoint1:CGPointMake(17, 18.5), controlPoint2: CGPointMake(17, 25.6))
+        bezier.cosmos_addCurve(to: CGPointMake(17, 28.5), controlPoint1:CGPointMake(19.3, 30.8), controlPoint2: CGPointMake(22.2, 30.8))
+        bezier.cosmos_addCurve(to: CGPointMake(25.1, 30.8), controlPoint1:CGPointMake(27.4, 28.5), controlPoint2: CGPointMake(27.4, 25.6))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -287,25 +293,25 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(30, 12.2))
-        bezier.addCurve(to: CGPointMake(30, 9.4), controlPoint1:CGPointMake(32.2, 7.2), controlPoint2: CGPointMake(35, 7.2))
-        bezier.addCurve(to: CGPointMake(37.8, 7.2), controlPoint1:CGPointMake(40, 9.4), controlPoint2: CGPointMake(40, 12.2))
-        bezier.addCurve(to: CGPointMake(40, 23.7), controlPoint1:CGPointMake(24.3, 31.5), controlPoint2: CGPointMake(24.3, 31.5))
+        bezier.cosmos_addCurve(to: CGPointMake(30, 9.4), controlPoint1:CGPointMake(32.2, 7.2), controlPoint2: CGPointMake(35, 7.2))
+        bezier.cosmos_addCurve(to: CGPointMake(37.8, 7.2), controlPoint1:CGPointMake(40, 9.4), controlPoint2: CGPointMake(40, 12.2))
+        bezier.cosmos_addCurve(to: CGPointMake(40, 23.7), controlPoint1:CGPointMake(24.3, 31.5), controlPoint2: CGPointMake(24.3, 31.5))
 
         bezier.move(to: CGPointMake(10, 24.1))
         bezier.addLine(to: CGPointMake(10, 5))
-        bezier.addCurve(to: CGPointMake(10, 2.2), controlPoint1:CGPointMake(7.8, 0), controlPoint2: CGPointMake(5, 0))
-        bezier.addCurve(to: CGPointMake(2.2, 0), controlPoint1:CGPointMake(0, 2.2), controlPoint2: CGPointMake(0, 5))
+        bezier.cosmos_addCurve(to: CGPointMake(10, 2.2), controlPoint1:CGPointMake(7.8, 0), controlPoint2: CGPointMake(5, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(2.2, 0), controlPoint1:CGPointMake(0, 2.2), controlPoint2: CGPointMake(0, 5))
 
         bezier.move(to: CGPointMake(20, 24.1))
         bezier.addLine(to: CGPointMake(20, 5))
-        bezier.addCurve(to: CGPointMake(20, 2.2), controlPoint1:CGPointMake(17.8, 0), controlPoint2: CGPointMake(15, 0))
-        bezier.addCurve(to: CGPointMake(12.2, 0), controlPoint1:CGPointMake(10, 2.2), controlPoint2: CGPointMake(10, 5))
+        bezier.cosmos_addCurve(to: CGPointMake(20, 2.2), controlPoint1:CGPointMake(17.8, 0), controlPoint2: CGPointMake(15, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(12.2, 0), controlPoint1:CGPointMake(10, 2.2), controlPoint2: CGPointMake(10, 5))
 
         bezier.move(to: CGPointMake(39.1, 29.8))
-        bezier.addCurve(to: CGPointMake(34.5, 29.8), controlPoint1:CGPointMake(30, 28), controlPoint2: CGPointMake(30, 19.2))
+        bezier.cosmos_addCurve(to: CGPointMake(34.5, 29.8), controlPoint1:CGPointMake(30, 28), controlPoint2: CGPointMake(30, 19.2))
         bezier.addLine(to: CGPointMake(30, 5))
-        bezier.addCurve(to: CGPointMake(30, 2.2), controlPoint1:CGPointMake(27.8, 0), controlPoint2: CGPointMake(25, 0))
-        bezier.addCurve(to: CGPointMake(22.2, 0), controlPoint1:CGPointMake(20, 2.2), controlPoint2: CGPointMake(20, 5))
+        bezier.cosmos_addCurve(to: CGPointMake(30, 2.2), controlPoint1:CGPointMake(27.8, 0), controlPoint2: CGPointMake(25, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(22.2, 0), controlPoint1:CGPointMake(20, 2.2), controlPoint2: CGPointMake(20, 5))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -355,8 +361,8 @@ class AstrologicalSignProvider : NSObject {
 
         bezier.move(to: CGPointMake(37.5, 11.3))
         bezier.addLine(to: CGPointMake(30, 11.3))
-        bezier.addCurve(to: CGPointMake(30, 5.1), controlPoint1:CGPointMake(24.9, 0), controlPoint2: CGPointMake(18.7, 0))
-        bezier.addCurve(to: CGPointMake(12.5, 0), controlPoint1:CGPointMake(7.4, 5.1), controlPoint2: CGPointMake(7.4, 11.3))
+        bezier.cosmos_addCurve(to: CGPointMake(30, 5.1), controlPoint1:CGPointMake(24.9, 0), controlPoint2: CGPointMake(18.7, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(12.5, 0), controlPoint1:CGPointMake(7.4, 5.1), controlPoint2: CGPointMake(7.4, 11.3))
         bezier.addLine(to: CGPointMake(0, 11.3))
 
         bezier.move(to: CGPointMake(0, 20.2))
@@ -401,12 +407,12 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(2.8, 0.1))
-        bezier.addCurve(to: CGPointMake(2.8, 0.1), controlPoint1:CGPointMake(9.2, 1.9), controlPoint2: CGPointMake(9.2, 13.1))
-        bezier.addCurve(to: CGPointMake(9.2, 24.3), controlPoint1:CGPointMake(2.8, 26.1), controlPoint2: CGPointMake(2.8, 26.1))
+        bezier.cosmos_addCurve(to: CGPointMake(2.8, 0.1), controlPoint1:CGPointMake(9.2, 1.9), controlPoint2: CGPointMake(9.2, 13.1))
+        bezier.cosmos_addCurve(to: CGPointMake(9.2, 24.3), controlPoint1:CGPointMake(2.8, 26.1), controlPoint2: CGPointMake(2.8, 26.1))
 
         bezier.move(to: CGPointMake(25.4, 26))
-        bezier.addCurve(to: CGPointMake(25.4, 26), controlPoint1:CGPointMake(19, 24.2), controlPoint2: CGPointMake(19, 13))
-        bezier.addCurve(to: CGPointMake(19, 1.8), controlPoint1:CGPointMake(25.4, 0), controlPoint2: CGPointMake(25.4, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(25.4, 26), controlPoint1:CGPointMake(19, 24.2), controlPoint2: CGPointMake(19, 13))
+        bezier.cosmos_addCurve(to: CGPointMake(19, 1.8), controlPoint1:CGPointMake(25.4, 0), controlPoint2: CGPointMake(25.4, 0))
 
         bezier.move(to: CGPointMake(0, 13.1))
         bezier.addLine(to: CGPointMake(28.2, 13.1))
@@ -466,18 +472,18 @@ class AstrologicalSignProvider : NSObject {
         let bezier = UIBezierPath()
 
         bezier.move(to: CGPointMake(0, 5.4))
-        bezier.addCurve(to: CGPointMake(4.5, 5.4), controlPoint1:CGPointMake(3.6, 0), controlPoint2: CGPointMake(8.2, 0))
-        bezier.addCurve(to: CGPointMake(12.7, 0), controlPoint1:CGPointMake(11.8, 5.4), controlPoint2: CGPointMake(16.3, 5.4))
-        bezier.addCurve(to: CGPointMake(20.8, 5.4), controlPoint1:CGPointMake(19.9, 0), controlPoint2: CGPointMake(24.5, 0))
-        bezier.addCurve(to: CGPointMake(29, 0), controlPoint1:CGPointMake(28.1, 5.4), controlPoint2: CGPointMake(32.6, 5.4))
-        bezier.addCurve(to: CGPointMake(37.1, 5.4), controlPoint1:CGPointMake(36.2, 0), controlPoint2: CGPointMake(40.7, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(4.5, 5.4), controlPoint1:CGPointMake(3.6, 0), controlPoint2: CGPointMake(8.2, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(12.7, 0), controlPoint1:CGPointMake(11.8, 5.4), controlPoint2: CGPointMake(16.3, 5.4))
+        bezier.cosmos_addCurve(to: CGPointMake(20.8, 5.4), controlPoint1:CGPointMake(19.9, 0), controlPoint2: CGPointMake(24.5, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(29, 0), controlPoint1:CGPointMake(28.1, 5.4), controlPoint2: CGPointMake(32.6, 5.4))
+        bezier.cosmos_addCurve(to: CGPointMake(37.1, 5.4), controlPoint1:CGPointMake(36.2, 0), controlPoint2: CGPointMake(40.7, 0))
 
         bezier.move(to: CGPointMake(40.7, 15.1))
-        bezier.addCurve(to: CGPointMake(36.2, 15.1), controlPoint1:CGPointMake(37.1, 20.5), controlPoint2: CGPointMake(32.6, 20.5))
-        bezier.addCurve(to: CGPointMake(28.1, 20.5), controlPoint1:CGPointMake(29, 15.1), controlPoint2: CGPointMake(24.5, 15.1))
-        bezier.addCurve(to: CGPointMake(19.9, 15.1), controlPoint1:CGPointMake(20.8, 20.5), controlPoint2: CGPointMake(16.3, 20.5))
-        bezier.addCurve(to: CGPointMake(11.8, 20.5), controlPoint1:CGPointMake(12.7, 15.1), controlPoint2: CGPointMake(8.2, 15.1))
-        bezier.addCurve(to: CGPointMake(3.6, 15.1), controlPoint1:CGPointMake(4.5, 20.5), controlPoint2: CGPointMake(0, 20.5))
+        bezier.cosmos_addCurve(to: CGPointMake(36.2, 15.1), controlPoint1:CGPointMake(37.1, 20.5), controlPoint2: CGPointMake(32.6, 20.5))
+        bezier.cosmos_addCurve(to: CGPointMake(28.1, 20.5), controlPoint1:CGPointMake(29, 15.1), controlPoint2: CGPointMake(24.5, 15.1))
+        bezier.cosmos_addCurve(to: CGPointMake(19.9, 15.1), controlPoint1:CGPointMake(20.8, 20.5), controlPoint2: CGPointMake(16.3, 20.5))
+        bezier.cosmos_addCurve(to: CGPointMake(11.8, 20.5), controlPoint1:CGPointMake(12.7, 15.1), controlPoint2: CGPointMake(8.2, 15.1))
+        bezier.cosmos_addCurve(to: CGPointMake(3.6, 15.1), controlPoint1:CGPointMake(4.5, 20.5), controlPoint2: CGPointMake(0, 20.5))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -600,18 +606,18 @@ class AstrologicalSignProvider : NSObject {
 
         bezier.move(to: CGPointMake(13, 22.3))
         bezier.addLine(to: CGPointMake(13, 6.5))
-        bezier.addCurve(to: CGPointMake(13, 2.9), controlPoint1:CGPointMake(10.1, 0), controlPoint2: CGPointMake(6.5, 0))
-        bezier.addCurve(to: CGPointMake(2.9, 0), controlPoint1:CGPointMake(0, 2.9), controlPoint2: CGPointMake(0, 6.5))
+        bezier.cosmos_addCurve(to: CGPointMake(13, 2.9), controlPoint1:CGPointMake(10.1, 0), controlPoint2: CGPointMake(6.5, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(2.9, 0), controlPoint1:CGPointMake(0, 2.9), controlPoint2: CGPointMake(0, 6.5))
 
         bezier.move(to: CGPointMake(13, 6.5))
-        bezier.addCurve(to: CGPointMake(13, 2.9), controlPoint1:CGPointMake(15.9, 0), controlPoint2: CGPointMake(19.5, 0))
-        bezier.addCurve(to: CGPointMake(23.1, 0), controlPoint1:CGPointMake(26, 2.9), controlPoint2: CGPointMake(26, 6.5))
-        bezier.addCurve(to: CGPointMake(26, 16.3), controlPoint1:CGPointMake(27.6, 19.6), controlPoint2: CGPointMake(29.9, 22.9))
-        bezier.addCurve(to: CGPointMake(32.2, 26.3), controlPoint1:CGPointMake(35.2, 27.7), controlPoint2: CGPointMake(37.7, 27.7))
-        bezier.addCurve(to: CGPointMake(41.8, 27.7), controlPoint1:CGPointMake(45.2, 24.4), controlPoint2: CGPointMake(45.2, 20.3))
-        bezier.addCurve(to: CGPointMake(45.2, 16.2), controlPoint1:CGPointMake(41.9, 12.9), controlPoint2: CGPointMake(37.8, 12.9))
-        bezier.addCurve(to: CGPointMake(32.1, 12.9), controlPoint1:CGPointMake(30.7, 18.5), controlPoint2: CGPointMake(29.9, 22.9))
-        bezier.addCurve(to: CGPointMake(28.3, 31.7), controlPoint1:CGPointMake(22.4, 33.6), controlPoint2: CGPointMake(17.1, 33.6))
+        bezier.cosmos_addCurve(to: CGPointMake(13, 2.9), controlPoint1:CGPointMake(15.9, 0), controlPoint2: CGPointMake(19.5, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(23.1, 0), controlPoint1:CGPointMake(26, 2.9), controlPoint2: CGPointMake(26, 6.5))
+        bezier.cosmos_addCurve(to: CGPointMake(26, 16.3), controlPoint1:CGPointMake(27.6, 19.6), controlPoint2: CGPointMake(29.9, 22.9))
+        bezier.cosmos_addCurve(to: CGPointMake(32.2, 26.3), controlPoint1:CGPointMake(35.2, 27.7), controlPoint2: CGPointMake(37.7, 27.7))
+        bezier.cosmos_addCurve(to: CGPointMake(41.8, 27.7), controlPoint1:CGPointMake(45.2, 24.4), controlPoint2: CGPointMake(45.2, 20.3))
+        bezier.cosmos_addCurve(to: CGPointMake(45.2, 16.2), controlPoint1:CGPointMake(41.9, 12.9), controlPoint2: CGPointMake(37.8, 12.9))
+        bezier.cosmos_addCurve(to: CGPointMake(32.1, 12.9), controlPoint1:CGPointMake(30.7, 18.5), controlPoint2: CGPointMake(29.9, 22.9))
+        bezier.cosmos_addCurve(to: CGPointMake(28.3, 31.7), controlPoint1:CGPointMake(22.4, 33.6), controlPoint2: CGPointMake(17.1, 33.6))
 
         var sign = AstrologicalSign()
         sign.shape = bezier
@@ -658,19 +664,19 @@ class AstrologicalSignProvider : NSObject {
 
         bezier.move(to: CGPointMake(10, 24.1))
         bezier.addLine(to: CGPointMake(10, 5))
-        bezier.addCurve(to: CGPointMake(10, 2.2), controlPoint1:CGPointMake(7.8, 0), controlPoint2: CGPointMake(5, 0))
-        bezier.addCurve(to: CGPointMake(2.2, 0), controlPoint1:CGPointMake(0, 2.2), controlPoint2: CGPointMake(0, 5))
+        bezier.cosmos_addCurve(to: CGPointMake(10, 2.2), controlPoint1:CGPointMake(7.8, 0), controlPoint2: CGPointMake(5, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(2.2, 0), controlPoint1:CGPointMake(0, 2.2), controlPoint2: CGPointMake(0, 5))
 
         bezier.move(to: CGPointMake(20, 24.1))
         bezier.addLine(to: CGPointMake(20, 5))
-        bezier.addCurve(to: CGPointMake(20, 2.2), controlPoint1:CGPointMake(17.8, 0), controlPoint2: CGPointMake(15, 0))
-        bezier.addCurve(to: CGPointMake(12.2, 0), controlPoint1:CGPointMake(10, 2.2), controlPoint2: CGPointMake(10, 5))
+        bezier.cosmos_addCurve(to: CGPointMake(20, 2.2), controlPoint1:CGPointMake(17.8, 0), controlPoint2: CGPointMake(15, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(12.2, 0), controlPoint1:CGPointMake(10, 2.2), controlPoint2: CGPointMake(10, 5))
 
         bezier.move(to: CGPointMake(39.1, 31.1))
-        bezier.addCurve(to: CGPointMake(36, 28.1), controlPoint1:CGPointMake(30, 23.9), controlPoint2: CGPointMake(30, 15.1))
+        bezier.cosmos_addCurve(to: CGPointMake(36, 28.1), controlPoint1:CGPointMake(30, 23.9), controlPoint2: CGPointMake(30, 15.1))
         bezier.addLine(to: CGPointMake(30, 5))
-        bezier.addCurve(to: CGPointMake(30, 2.2), controlPoint1:CGPointMake(27.8, 0), controlPoint2: CGPointMake(25, 0))
-        bezier.addCurve(to: CGPointMake(22.2, 0), controlPoint1:CGPointMake(20, 2.2), controlPoint2: CGPointMake(20, 5))
+        bezier.cosmos_addCurve(to: CGPointMake(30, 2.2), controlPoint1:CGPointMake(27.8, 0), controlPoint2: CGPointMake(25, 0))
+        bezier.cosmos_addCurve(to: CGPointMake(22.2, 0), controlPoint1:CGPointMake(20, 2.2), controlPoint2: CGPointMake(20, 5))
 
         bezier.move(to: CGPointMake(39.2, 20.5))
         bezier.addLine(to: CGPointMake(39.2, 31.1))
