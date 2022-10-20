@@ -3,8 +3,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let debugView = Cosmos(frame: UIScreen.main.bounds)
+    typealias MainView = Cosmos
+    var debugView = MainView(frame: UIScreen.main.bounds)
     // StarsSmall(frame: UIScreen.main.bounds, speed: 1.0)
     // SignLines(frame: UIScreen.main.bounds)
     // StarsBackground(frame: UIScreen.main.bounds, imageName: "6smallStar", starCount: 20, speed: 1.0)
@@ -15,6 +15,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .COSMOSbkgd
         self.view.addSubview(debugView)
+        
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        debugView.removeFromSuperview()
+        debugView = MainView(frame: CGRect(origin: .zero, size: size))
+        view.addSubview(debugView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
