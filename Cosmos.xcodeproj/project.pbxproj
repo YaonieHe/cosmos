@@ -35,6 +35,7 @@
 		10C44A4F28FEA66400D35C83 /* debug_scrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */; };
 		10C8B82928FFCCE000021E16 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8B82828FFCCE000021E16 /* Shape.swift */; };
 		10C8B82C290022D400021E16 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8B82B290022D400021E16 /* AudioPlayer.swift */; };
+		10C8B82F2900DF5500021E16 /* Cosmos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8B82E2900DF5500021E16 /* Cosmos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		10C44A4E28FEA66400D35C83 /* debug_scrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debug_scrollView.swift; sourceTree = "<group>"; };
 		10C8B82828FFCCE000021E16 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		10C8B82B290022D400021E16 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		10C8B82E2900DF5500021E16 /* Cosmos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cosmos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				10C44A2E28FE989800D35C83 /* InfoPanel.swift */,
 				10C44A3F28FE98A600D35C83 /* background */,
 				10C44A3428FE989A00D35C83 /* menu */,
+				10C8B82E2900DF5500021E16 /* Cosmos.swift */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				10C44A3B28FE98A200D35C83 /* MenuSelector.swift in Sources */,
 				10C44A3328FE989800D35C83 /* InfiniteScrollView.swift in Sources */,
 				10C44A4D28FEA58C00D35C83 /* ParallaxBackground.swift in Sources */,
+				10C8B82F2900DF5500021E16 /* Cosmos.swift in Sources */,
 				10C8B82C290022D400021E16 /* AudioPlayer.swift in Sources */,
 				10C44A3128FE989800D35C83 /* InfoPanel.swift in Sources */,
 				10C44A3C28FE98A200D35C83 /* Menu.swift in Sources */,
@@ -423,7 +427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y8YG5F7WN9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cosmos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -452,7 +456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y8YG5F7WN9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cosmos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

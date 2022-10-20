@@ -1,6 +1,6 @@
 import UIKit
 
-let gapBetweenSigns: CGFloat = 3
+let gapBetweenSigns: CGFloat = 10
 
 class Stars : UIView, UIScrollViewDelegate {
     let speeds: [CGFloat] = [0.08, 0, 0.1, 0.12, 0.15, 1.0, 0.8, 1.0]

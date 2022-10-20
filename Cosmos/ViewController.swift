@@ -4,7 +4,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let debugView = Menu(frame: UIScreen.main.bounds)
+    let debugView = Cosmos(frame: UIScreen.main.bounds)
     // StarsSmall(frame: UIScreen.main.bounds, speed: 1.0)
     // SignLines(frame: UIScreen.main.bounds)
     // StarsBackground(frame: UIScreen.main.bounds, imageName: "6smallStar", starCount: 20, speed: 1.0)
@@ -15,27 +15,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .COSMOSbkgd
         self.view.addSubview(debugView)
-        
-//        let rings = MenuRings(frame: UIScreen.main.bounds)
-//        view.addSubview(rings)
-//        rings.thickRingOut()
-//        rings.thinRingOut()
-//        rings.dashedRingsOut()
-//        rings.revealHideDividingLins(target: 1)
-//
-//        let icons = MenuIcons(frame: UIScreen.main.bounds)
-//        view.addSubview(icons)
-//        icons.signIconsOut()
-//        icons.revealSignIcons()
-//
-//        let selector = MenuSelector(frame: CGRect(origin: .zero, size: CGSize(width: 80, height: 80)))
-//        selector.center = self.view.center
-//        view.addSubview(selector)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        debugView.animOut()
     }
 
 }

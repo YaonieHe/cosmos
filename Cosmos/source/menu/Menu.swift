@@ -9,6 +9,16 @@ class Menu : UIView {
     
     var menuIsVisible = false
     
+    let hideMenuSound = AudioPlayer("menuClose.mp3")!
+    let revealMenuSound = AudioPlayer("menuOpen.mp3")!
+    
+    var instructionLabel : UILabel = UILabel()
+    
+    var stopShowInstruction: Bool = false
+    
+    typealias SelectionAction = (Int) -> Void
+    var selectionAction: SelectionAction?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -25,6 +35,16 @@ class Menu : UIView {
         addSubview(menuIcons)
         
         createGesture()
+        createInstructionLabel()
+        
+        delayWork(time: 3.0) {
+            if !self.stopShowInstruction {
+                self.showInstruction()
+            }
+        }
+        
+        hideMenuSound.volume = 0.64
+        revealMenuSound.volume = 0.64
     }
     
     required init?(coder: NSCoder) {
@@ -38,7 +58,6 @@ class Menu : UIView {
     }
     
     @objc func longPress(_ longPress: UILongPressGestureRecognizer) {
-        self.menuSelector.longPress(longPress)
         
         switch longPress.state {
         case .began:
@@ -49,11 +68,24 @@ class Menu : UIView {
             } else {
                 self.shouldRevert = true
             }
+            if let sa = self.selectionAction {
+                if self.menuSelector.currentSelection >= 0 {
+                    sa(self.menuSelector.currentSelection)
+                }
+            }
         default: do{}
         }
+        
+        self.menuSelector.longPress(longPress)
     }
     
     func revealMenu() {
+        if instructionLabel.alpha > 0 {
+            hideInstruction()
+        }
+        self.stopShowInstruction = true
+        
+        revealMenuSound.play()
         self.menuIsVisible = false
         
         menuShadow.revealAnim()
@@ -80,6 +112,7 @@ class Menu : UIView {
     }
     
     func hideMenu() {
+        hideMenuSound.play()
         self.menuIsVisible = false
         
         menuRing.dashedRingsIn()
@@ -98,7 +131,40 @@ class Menu : UIView {
         }
     }
     
-//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-//        return menuSelector
-//    }
+    func createInstructionLabel() {
+        instructionLabel.bounds = CGRect(origin: .zero, size: CGSize(width: 320, height: 44))
+        instructionLabel.text = "press and hold to open menu\nthen drag to choose a sign"
+        instructionLabel.font = UIFont(name: "Menlo-Regular", size: 13)
+        instructionLabel.textAlignment = .center
+        instructionLabel.textColor = .white
+        instructionLabel.center = CGPoint(x: bounds.midX, y: bounds.midY - 128)
+        instructionLabel.numberOfLines = 2
+        instructionLabel.alpha = 0
+        self.addSubview(instructionLabel)
+    }
+    
+    func showInstruction() {
+        UIView.animate(withDuration: 2.5, delay: 0) {
+            self.instructionLabel.alpha = 1
+        }
+    }
+    
+    func hideInstruction() {
+        UIView.animate(withDuration: 0.25, delay: 0) {
+            self.instructionLabel.alpha = 0
+        }
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if !self.menuIsVisible {
+            let cx = bounds.midX
+            let cy = bounds.midY
+            let r: CGFloat = 50
+            let rect = CGRect(origin: CGPoint(x: cx - r, y: cy - r), size: CGSize(width: r * 2, height: r * 2))
+            if !rect.contains(point) {
+                return nil
+            }
+        }
+        return super.hitTest(point, with: event)
+    }
 }

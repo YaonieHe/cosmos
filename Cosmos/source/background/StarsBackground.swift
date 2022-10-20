@@ -3,7 +3,7 @@ import UIKit
 public class StarsBackground : InfiniteScrollView {
     convenience public init(frame: CGRect, imageName: String, starCount: Int, speed: CGFloat) {
         self.init(frame: frame)
-        self.backgroundColor = .black
+        self.backgroundColor = .clear
         
         let adjustFrameSize = frame.width * speed
         

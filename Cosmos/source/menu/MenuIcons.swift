@@ -6,9 +6,25 @@ public class MenuIcons : UIView {
     var innerTargets: [CGPoint] = [CGPoint]()
     var outerTargets: [CGPoint] = [CGPoint]()
     
+    let anchorDic = [
+        "pisces": CGPoint(x: 0.099, y: 0.004),
+        "aries": CGPoint(x: 0.0777, y: 0.536),
+        "taurus": CGPoint(x: 0.0, y: 0.0),
+        "gemini": CGPoint(x: 0.996, y: 0.0),
+        "cancer": CGPoint(x: 0.0, y: 0.275),
+        "leo": CGPoint(x: 0.379, y: 0.636),
+        "virgo": CGPoint(x: 0.750, y: 0.387),
+        "libra": CGPoint(x: 1.0, y: 0.559),
+        "scorpio": CGPoint(x: 0.255, y: 0.775),
+        "sagittarius": CGPoint(x: 1.0, y: 0.349),
+        "capricorn": CGPoint(x: 0.288, y: 0.663),
+        "aquarius": CGPoint(x: 0.0, y: 0.263),
+    ]
+    
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        backgroundColor = .clear
         createSignIcons()
     }
     
@@ -44,21 +60,6 @@ public class MenuIcons : UIView {
     }
     
     func createSignIcons() {
-        let anchorArray = [
-            "pisces": CGPoint(x: 0.099, y: 0.004),
-            "aries": CGPoint(x: 0.0777, y: 0.536),
-            "taurus": CGPoint(x: 0.0, y: 0.0),
-            "gemini": CGPoint(x: 0.996, y: 0.0),
-            "cancer": CGPoint(x: 0.0, y: 0.275),
-            "leo": CGPoint(x: 0.379, y: 0.636),
-            "virgo": CGPoint(x: 0.750, y: 0.387),
-            "libra": CGPoint(x: 1.0, y: 0.559),
-            "scorpio": CGPoint(x: 0.255, y: 0.775),
-            "sagittarius": CGPoint(x: 1.0, y: 0.349),
-            "capricorn": CGPoint(x: 0.288, y: 0.663),
-            "aquarius": CGPoint(x: 0.0, y: 0.263),
-        ]
-        
         for name in AstrologicalSignProvider.sharedInstance.order {
             let path = AstrologicalSignProvider.sharedInstance.get(sign: name)!.shape!
             let shape = Shape(frame: path.bounds)
@@ -69,7 +70,7 @@ public class MenuIcons : UIView {
             shape.lineWidth = 2
             shape.strokeColor = UIColor.white.cgColor
             shape.fillColor = UIColor.clear.cgColor
-            shape.anchorPoint = anchorArray[name]!
+            shape.anchorPoint = anchorDic[name]!
             shape.path = path.cgPath
             
             signIcons[name] = shape
@@ -115,6 +116,7 @@ public class MenuIcons : UIView {
                 let name = AstrologicalSignProvider.sharedInstance.order[i]
                 if let sign = self.signIcons[name] {
                     sign.center = self.outerTargets[i]
+                    sign.anchorPoint = CGPoint(x: 0.5, y: 0.5)
                 }
             }
         }
@@ -127,6 +129,7 @@ public class MenuIcons : UIView {
                 let name = AstrologicalSignProvider.sharedInstance.order[i]
                 if let sign = self.signIcons[name] {
                     sign.center = self.innerTargets[i]
+                    sign.anchorPoint = self.anchorDic[name]!
                 }
             }
         }
