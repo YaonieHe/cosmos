@@ -1,20 +1,20 @@
 import UIKit
 
 class Menu : UIView {
-    var menuRing: MenuRings!
-    var menuIcons: MenuIcons!
-    var menuSelector: MenuSelector!
-    var menuShadow: MenuShadow!
-    var shouldRevert: Bool = false
+    private var menuRing: MenuRings!
+    private var menuIcons: MenuIcons!
+    private var menuSelector: MenuSelector!
+    private var menuShadow: MenuShadow!
+    private var shouldRevert: Bool = false
     
-    var menuIsVisible = false
+    private var menuIsVisible = false
     
-    let hideMenuSound = AudioPlayer("menuClose.mp3")!
-    let revealMenuSound = AudioPlayer("menuOpen.mp3")!
+    private let hideMenuSound = AudioPlayer("menuClose.mp3")!
+    private let revealMenuSound = AudioPlayer("menuOpen.mp3")!
     
-    var instructionLabel : UILabel = UILabel()
+    private var instructionLabel : UILabel = UILabel()
     
-    var stopShowInstruction: Bool = false
+    private var stopShowInstruction: Bool = false
     
     typealias SelectionAction = (Int) -> Void
     var selectionAction: SelectionAction?
@@ -51,34 +51,7 @@ class Menu : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func createGesture() {
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
-        self.addGestureRecognizer(longPress)
-    }
-    
-    @objc func longPress(_ longPress: UILongPressGestureRecognizer) {
-        
-        switch longPress.state {
-        case .began:
-            self.revealMenu()
-        case .cancelled, .failed, .ended:
-            if menuIsVisible {
-                self.hideMenu()
-            } else {
-                self.shouldRevert = true
-            }
-            if let sa = self.selectionAction {
-                if self.menuSelector.currentSelection >= 0 {
-                    sa(self.menuSelector.currentSelection)
-                }
-            }
-        default: do{}
-        }
-        
-        self.menuSelector.longPress(longPress)
-    }
-    
+    // MARK: - 动画
     func revealMenu() {
         if instructionLabel.alpha > 0 {
             hideInstruction()
@@ -131,7 +104,36 @@ class Menu : UIView {
         }
     }
     
-    func createInstructionLabel() {
+    // MARK: - 手势
+    private func createGesture() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        self.addGestureRecognizer(longPress)
+    }
+    
+    @objc private func longPress(_ longPress: UILongPressGestureRecognizer) {
+        
+        switch longPress.state {
+        case .began:
+            self.revealMenu()
+        case .cancelled, .failed, .ended:
+            if menuIsVisible {
+                self.hideMenu()
+            } else {
+                self.shouldRevert = true
+            }
+            if let sa = self.selectionAction {
+                if self.menuSelector.currentSelection >= 0 {
+                    sa(self.menuSelector.currentSelection)
+                }
+            }
+        default: do{}
+        }
+        
+        self.menuSelector.longPress(longPress)
+    }
+    
+    // MARK: - 文本
+    private func createInstructionLabel() {
         instructionLabel.bounds = CGRect(origin: .zero, size: CGSize(width: 320, height: 44))
         instructionLabel.text = "press and hold to open menu\nthen drag to choose a sign"
         instructionLabel.font = UIFont(name: "Menlo-Regular", size: 13)
@@ -143,18 +145,19 @@ class Menu : UIView {
         self.addSubview(instructionLabel)
     }
     
-    func showInstruction() {
+    private func showInstruction() {
         UIView.animate(withDuration: 2.5, delay: 0) {
             self.instructionLabel.alpha = 1
         }
     }
     
-    func hideInstruction() {
+    private func hideInstruction() {
         UIView.animate(withDuration: 0.25, delay: 0) {
             self.instructionLabel.alpha = 0
         }
     }
     
+    // MARK: -
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if !self.menuIsVisible {
             let cx = bounds.midX

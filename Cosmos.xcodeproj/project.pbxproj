@@ -18,7 +18,6 @@
 		10C44A2B28FE988E00D35C83 /* audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10C44A2628FE988E00D35C83 /* audio1.mp3 */; };
 		10C44A2C28FE988F00D35C83 /* menuClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10C44A2728FE988E00D35C83 /* menuClose.mp3 */; };
 		10C44A2D28FE988F00D35C83 /* menuOpen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10C44A2828FE988E00D35C83 /* menuOpen.mp3 */; };
-		10C44A3128FE989800D35C83 /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A2E28FE989800D35C83 /* InfoPanel.swift */; };
 		10C44A3228FE989800D35C83 /* AstrologicalSignProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A2F28FE989800D35C83 /* AstrologicalSignProvider.swift */; };
 		10C44A3328FE989800D35C83 /* InfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A3028FE989800D35C83 /* InfiniteScrollView.swift */; };
 		10C44A3A28FE98A200D35C83 /* MenuRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C44A3528FE98A200D35C83 /* MenuRings.swift */; };
@@ -52,7 +51,6 @@
 		10C44A2628FE988E00D35C83 /* audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio1.mp3; sourceTree = "<group>"; };
 		10C44A2728FE988E00D35C83 /* menuClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuClose.mp3; sourceTree = "<group>"; };
 		10C44A2828FE988E00D35C83 /* menuOpen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuOpen.mp3; sourceTree = "<group>"; };
-		10C44A2E28FE989800D35C83 /* InfoPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
 		10C44A2F28FE989800D35C83 /* AstrologicalSignProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AstrologicalSignProvider.swift; sourceTree = "<group>"; };
 		10C44A3028FE989800D35C83 /* InfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollView.swift; sourceTree = "<group>"; };
 		10C44A3528FE98A200D35C83 /* MenuRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuRings.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				10C44A4B28FEA57B00D35C83 /* debug */,
 				10C44A2F28FE989800D35C83 /* AstrologicalSignProvider.swift */,
 				10C44A3028FE989800D35C83 /* InfiniteScrollView.swift */,
-				10C44A2E28FE989800D35C83 /* InfoPanel.swift */,
 				10C44A3F28FE98A600D35C83 /* background */,
 				10C44A3428FE989A00D35C83 /* menu */,
 				10C8B82E2900DF5500021E16 /* Cosmos.swift */,
@@ -269,7 +266,6 @@
 				10C44A4D28FEA58C00D35C83 /* ParallaxBackground.swift in Sources */,
 				10C8B82F2900DF5500021E16 /* Cosmos.swift in Sources */,
 				10C8B82C290022D400021E16 /* AudioPlayer.swift in Sources */,
-				10C44A3128FE989800D35C83 /* InfoPanel.swift in Sources */,
 				10C44A3C28FE98A200D35C83 /* Menu.swift in Sources */,
 				10C44A1028FE8EAA00D35C83 /* SceneDelegate.swift in Sources */,
 				10C44A4728FE98B700D35C83 /* StarsBig.swift in Sources */,

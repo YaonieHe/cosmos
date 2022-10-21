@@ -3,10 +3,10 @@
 import UIKit
 
 class ParallaxBackground: UIView {
-    let speeds : [CGFloat] = [0.08,0.0,0.10,0.12,0.15,1.0,0.8,1.0]
-    lazy var scrollviews = [InfiniteScrollView]()
-    let signCount : CGFloat = 12.0
-    var scrollViewOffsetContext: CGFloat = 0
+    private let speeds : [CGFloat] = [0.08,0.0,0.10,0.12,0.15,1.0,0.8,1.0]
+    private lazy var scrollviews = [InfiniteScrollView]()
+    private let signCount : CGFloat = 12.0
+    private var scrollViewOffsetContext: CGFloat = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,7 +17,7 @@ class ParallaxBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         for i in 0..<speeds.count {
             let layer = createLayer(speed: speeds[i])
             self.addSubview(layer)
@@ -29,7 +29,7 @@ class ParallaxBackground: UIView {
         }
     }
     
-    func createLayer(speed: CGFloat) -> InfiniteScrollView {
+    private func createLayer(speed: CGFloat) -> InfiniteScrollView {
         let frame = self.bounds
         let layer =  InfiniteScrollView(frame: frame)
         var contentSize = CGSizeMake(frame.width * 2 * signCount * speed, frame.height)
@@ -69,7 +69,7 @@ class ParallaxBackground: UIView {
 
 
 class DEBUGParallaxBackground: UIView {
-    var background: ParallaxBackground!
+    private var background: ParallaxBackground!
 
     
     override init(frame: CGRect) {
@@ -81,7 +81,7 @@ class DEBUGParallaxBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         background = ParallaxBackground(frame: self.bounds)
         self.addSubview(background)
     }

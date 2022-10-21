@@ -3,6 +3,7 @@
 import UIKit
 
 class Shape: UIView {
+    // MARK: - Public
     var path: CGPath? {
         get {
             return shapeLayer.path
@@ -21,40 +22,28 @@ class Shape: UIView {
     }
     
     var fillColor: CGColor? {
-        get {
-            return shapeLayer.fillColor
-        }
-        set {
-            shapeLayer.fillColor = newValue
-        }
+        get { return shapeLayer.fillColor }
+        set { shapeLayer.fillColor = newValue }
     }
     
     var strokeColor: CGColor? {
-        get {
-            return shapeLayer.strokeColor
-        }
-        set {
-            shapeLayer.strokeColor = newValue
-        }
+        get { return shapeLayer.strokeColor }
+        set { shapeLayer.strokeColor = newValue }
     }
     
     var opacity: Float {
-        get {
-            return shapeLayer.opacity
-        }
-        set {
-            shapeLayer.opacity = newValue
-        }
+        get { return shapeLayer.opacity }
+        set { shapeLayer.opacity = newValue }
     }
     
     var lineDashPattern: [NSNumber]? {
-        get {return shapeLayer.lineDashPattern}
-        set {shapeLayer.lineDashPattern = newValue}
+        get { return shapeLayer.lineDashPattern }
+        set { shapeLayer.lineDashPattern = newValue }
     }
     
     var strokeEnd: CGFloat {
-        get {return shapeLayer.strokeEnd}
-        set {shapeLayer.strokeEnd = newValue}
+        get { return shapeLayer.strokeEnd }
+        set { shapeLayer.strokeEnd = newValue }
     }
     
     var lineCap: CAShapeLayerLineCap {
@@ -63,19 +52,20 @@ class Shape: UIView {
     }
     
     var lineJoin: CAShapeLayerLineJoin {
-        get {return shapeLayer.lineJoin}
-        set {shapeLayer.lineJoin = newValue}
+        get { return shapeLayer.lineJoin }
+        set { shapeLayer.lineJoin = newValue }
     }
     
     override var anchorPoint: CGPoint {
-        get {return shapeLayer.anchorPoint}
-        set {shapeLayer.anchorPoint = newValue}
+        get { return shapeLayer.anchorPoint }
+        set { shapeLayer.anchorPoint = newValue }
     }
     
     func setAffineTransform(_ m: CGAffineTransform) {
         shapeLayer.setAffineTransform(m)
     }
     
+    // MARK: - layer
     override class var layerClass: AnyClass {
         return CAShapeLayer.self
     }
@@ -84,7 +74,8 @@ class Shape: UIView {
         return self.layer as! CAShapeLayer
     }
     
-    static var __layerPropertyNames: [String]? = nil
+    // MARK: - 动画
+    private static var __layerPropertyNames: [String]? = nil
     private class func getLayerPropertyNames() -> [String] {
         if let __layerPropertyNames = __layerPropertyNames {
             return __layerPropertyNames
@@ -143,7 +134,6 @@ class Line: Shape {
 
 class Circle: Shape {
     convenience init(center: CGPoint, radius: CGFloat) {
-        
         let frame = CGRect(origin: CGPoint(x: center.x - radius, y: center.y - radius), size: CGSize(width: radius * 2, height: radius * 2))
         
         self.init(frame: frame)

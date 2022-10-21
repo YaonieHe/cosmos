@@ -1,10 +1,21 @@
 import UIKit
 
 public class SignLines : InfiniteScrollView {
-    var lines: [[Line]] = [[Line]]()
+    private var lines: [[Line]] = [[Line]]()
     var currentIndex: Int = 0
-    var currentLines: [Line] {
-        return lines[currentIndex]
+    private var currentLines: [Line] {
+        var result = lines[currentIndex]
+        if currentIndex == 0 {
+            if let tmp = lines.last {
+                result.append(contentsOf: tmp)
+            }
+        }
+        if currentIndex == lines.count - 1 {
+            if let tmp = lines.first {
+                result.append(contentsOf: tmp)
+            }
+        }
+        return result
     }
     
     public override init(frame: CGRect) {
@@ -37,6 +48,7 @@ public class SignLines : InfiniteScrollView {
             }
             lines.append(currentLineSet)
         }
+        
     }
     
     required init?(coder: NSCoder) {

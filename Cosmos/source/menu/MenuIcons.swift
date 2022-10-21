@@ -1,12 +1,12 @@
 import UIKit
 
 public class MenuIcons : UIView {
-    var signIcons: [String: Shape] = [String: Shape]()
+    private var signIcons: [String: Shape] = [String: Shape]()
     
-    var innerTargets: [CGPoint] = [CGPoint]()
-    var outerTargets: [CGPoint] = [CGPoint]()
+    private var innerTargets: [CGPoint] = [CGPoint]()
+    private var outerTargets: [CGPoint] = [CGPoint]()
     
-    let anchorDic = [
+    private let anchorDic = [
         "pisces": CGPoint(x: 0.099, y: 0.004),
         "aries": CGPoint(x: 0.0777, y: 0.536),
         "taurus": CGPoint(x: 0.0, y: 0.0),
@@ -21,7 +21,7 @@ public class MenuIcons : UIView {
         "aquarius": CGPoint(x: 0.0, y: 0.263),
     ]
     
-    
+    // MARK: -
     public override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
@@ -32,34 +32,8 @@ public class MenuIcons : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func animOut() {
-        delayWork(time: 1.0) {
-            self.signIconsOut()
-        }
-        delayWork(time: 1.5) {
-            self.revealSignIcons()
-        }
-        
-        delayWork(time: 2.5) {
-            self.animIn()
-        }
-    }
-
-    func animIn() {
-        delayWork(time: 0.25) {
-            self.hideSignIcons()
-        }
-        
-        delayWork(time: 1.0) {
-            self.signIconsIn()
-        }
-        
-        delayWork(time: 2.5) {
-            self.animOut()
-        }
-    }
-    
-    func createSignIcons() {
+    // MARK: -
+    private func createSignIcons() {
         for name in AstrologicalSignProvider.sharedInstance.order {
             let path = AstrologicalSignProvider.sharedInstance.get(sign: name)!.shape!
             let shape = Shape(frame: path.bounds)
@@ -79,7 +53,7 @@ public class MenuIcons : UIView {
         positionSignIcons()
     }
     
-    func positionSignIcons() {
+    private func positionSignIcons() {
         let provider = AstrologicalSignProvider.sharedInstance
         let r = 10.5
         let dx = bounds.midX
@@ -108,7 +82,7 @@ public class MenuIcons : UIView {
         }
     }
     
-    
+    // MARK: - anim
     func signIconsOut() {
         UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut) {
             let count = AstrologicalSignProvider.sharedInstance.order.count
@@ -148,6 +122,34 @@ public class MenuIcons : UIView {
             for sign in self.signIcons.values {
                 sign.strokeEnd = 0.001
             }
+        }
+    }
+    
+    // MARK: - debug
+    func animOut() {
+        delayWork(time: 1.0) {
+            self.signIconsOut()
+        }
+        delayWork(time: 1.5) {
+            self.revealSignIcons()
+        }
+        
+        delayWork(time: 2.5) {
+            self.animIn()
+        }
+    }
+
+    func animIn() {
+        delayWork(time: 0.25) {
+            self.hideSignIcons()
+        }
+        
+        delayWork(time: 1.0) {
+            self.signIconsIn()
+        }
+        
+        delayWork(time: 2.5) {
+            self.animOut()
         }
     }
 }

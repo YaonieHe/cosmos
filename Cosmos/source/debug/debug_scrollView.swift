@@ -4,7 +4,7 @@ import UIKit
 
 
 class DEBUGInfiniteScrollView: UIView {
-    let scrollView = InfiniteScrollView()
+    private let scrollView = InfiniteScrollView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -15,7 +15,7 @@ class DEBUGInfiniteScrollView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         self.addSubview(scrollView)
         scrollView.frame = self.bounds
         scrollView.showsHorizontalScrollIndicator = false
@@ -23,7 +23,7 @@ class DEBUGInfiniteScrollView: UIView {
     }
     
     
-    func addVisualIndicators() {
+    private func addVisualIndicators() {
         let count: Int = 20
         let gap: CGFloat = 150
         let dx: CGFloat = 40
@@ -48,7 +48,7 @@ class DEBUGInfiniteScrollView: UIView {
         scrollView.contentSize = CGSize(width: width + w, height: 0)
     }
     
-    func createIndicator(text: String, at point: CGPoint) {
+    private func createIndicator(text: String, at point: CGPoint) {
         let label = UILabel()
         label.text = text
         label.textColor = .red

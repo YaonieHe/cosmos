@@ -3,14 +3,14 @@ import UIKit
 let gapBetweenSigns: CGFloat = 10
 
 class Stars : UIView, UIScrollViewDelegate {
-    let speeds: [CGFloat] = [0.08, 0, 0.1, 0.12, 0.15, 1.0, 0.8, 1.0]
-    var scrollviews: [InfiniteScrollView] = [InfiniteScrollView]()
+    private let speeds: [CGFloat] = [0.08, 0, 0.1, 0.12, 0.15, 1.0, 0.8, 1.0]
+    private var scrollviews: [InfiniteScrollView] = [InfiniteScrollView]()
     
-    var signLines: SignLines!
-    var bigStars: StarsBig!
-    var snapTargets: [CGFloat] = [CGFloat]()
+    private var signLines: SignLines!
+    private var bigStars: StarsBig!
+    private var snapTargets: [CGFloat] = [CGFloat]()
     
-    var scrollviewOffsetContext = 0
+    private var scrollviewOffsetContext = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +48,7 @@ class Stars : UIView, UIScrollViewDelegate {
     }
     
     
-    func createVignette() -> InfiniteScrollView {
+    private func createVignette() -> InfiniteScrollView {
         let sv = InfiniteScrollView(frame: frame)
         let img = UIImage(named: "1vignette")
         let imageView = UIImageView(image: img)
@@ -57,13 +57,13 @@ class Stars : UIView, UIScrollViewDelegate {
         return sv
     }
     
-    func createSnapTargets() {
+    private func createSnapTargets() {
         for i in 0 ... AstrologicalSignProvider.sharedInstance.order.count {
             snapTargets.append(gapBetweenSigns * CGFloat(i) * frame.width)
         }
     }
     
-    func snapIfNeeded(x: CGFloat, _ scrollView: UIScrollView) {
+    private func snapIfNeeded(x: CGFloat, _ scrollView: UIScrollView) {
         var idx: Int = 0
         for target in snapTargets {
             let dist = abs(target - x)
@@ -79,6 +79,7 @@ class Stars : UIView, UIScrollViewDelegate {
         }
     }
     
+    // MARK: -
     func goto(selection: Int) {
         let target = frame.width * gapBetweenSigns * CGFloat(selection)
         UIView.animate(withDuration: 3.0, delay: 0, options: .curveEaseOut) {
@@ -89,6 +90,7 @@ class Stars : UIView, UIScrollViewDelegate {
         signLines.currentIndex = selection
     }
     
+    // MARK: - observe
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &scrollviewOffsetContext {
             let sv = object as! InfiniteScrollView
@@ -99,6 +101,7 @@ class Stars : UIView, UIScrollViewDelegate {
         }
     }
     
+    // MARK: - UIScrollViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         snapIfNeeded(x: scrollView.contentOffset.x, scrollView)
     }

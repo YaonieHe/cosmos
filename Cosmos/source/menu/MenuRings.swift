@@ -1,18 +1,19 @@
 import UIKit
 
 public class MenuRings : UIView {
-    var thickRingFrames: [CGRect] = [CGRect]()
-    var thickRing: Circle!
+    private var thickRingFrames: [CGRect] = [CGRect]()
+    private var thickRing: Circle!
     
-    var thinRings: [Circle] = [Circle]()
-    var thinRingFrames: [CGRect] = [CGRect]()
+    private var thinRings: [Circle] = [Circle]()
+    private var thinRingFrames: [CGRect] = [CGRect]()
     
-    var dashedRings: [Circle] = [Circle]()
+    private var dashedRings: [Circle] = [Circle]()
     
-    var menuDividingLines: [Line] = [Line]()
+    private var menuDividingLines: [Line] = [Line]()
     
-    var menuIsVisible = false
+    private var menuIsVisible = false
     
+    // MARK: -
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,41 +29,8 @@ public class MenuRings : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func animOut() {
-        delayWork(time: 1.0) {
-            self.thickRingOut()
-            self.thinRingOut()
-            self.dashedRingsOut()
-        }
-        
-        delayWork(time: 1.5) {
-            self.revealHideDividingLins(target: 1)
-        }
-        
-        delayWork(time: 2.5) {
-            self.animIn()
-        }
-        
-    }
-    
-    func animIn() {
-        delayWork(time: 0.25) {
-            self.revealHideDividingLins(target: 0)
-        }
-        
-        delayWork(time: 1.0) {
-            self.thickRingIn()
-            self.thinRingIn()
-            self.dashedRingsIn()
-        }
-        
-        delayWork(time: 2.0) {
-            self.animOut()
-        }
-    }
-    
     // MARK: thick ring
-    func createThickRing() {
+    private func createThickRing() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let inner = Circle(center: center, radius: 14)
         let outer = Circle(center: center, radius: 225)
@@ -90,7 +58,7 @@ public class MenuRings : UIView {
     }
     
     // MARK: thin ring
-    func createThinRing() {
+    private func createThinRing() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         thinRings.append(Circle(center: center, radius: 8))
         thinRings.append(Circle(center: center, radius: 56))
@@ -146,7 +114,7 @@ public class MenuRings : UIView {
     }
     
     // MARK: dashed ring
-    func createShortDashedRing() {
+    private func createShortDashedRing() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let shortDashedRing = Circle(center: center, radius: 82+2)
         shortDashedRing.lineWidth = 0
@@ -160,7 +128,7 @@ public class MenuRings : UIView {
         dashedRings.append(shortDashedRing)
     }
     
-    func createLongDashedRing() {
+    private func createLongDashedRing() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let longDashedRing = Circle(center: center, radius: 82+2)
         longDashedRing.lineWidth = 0
@@ -182,7 +150,7 @@ public class MenuRings : UIView {
         dashedRings.append(longDashedRing)
     }
     
-    func createDashedRings() {
+    private func createDashedRings() {
         createShortDashedRing()
         createLongDashedRing()
         
@@ -209,7 +177,7 @@ public class MenuRings : UIView {
     }
     
     // MARK: menu divid line
-    func createMenuDividingLines() {
+    private func createMenuDividingLines() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let count = AstrologicalSignProvider.sharedInstance.order.count
         let unit = CGFloat.pi * 2 / CGFloat(count)
@@ -243,6 +211,40 @@ public class MenuRings : UIView {
             UIView.animate(withDuration: 0.1, delay: CGFloat(i) * 0.05) {
                 self.menuDividingLines[idx].strokeEnd = target
             }
+        }
+    }
+    
+    // MARK: - debug
+    func animOut() {
+        delayWork(time: 1.0) {
+            self.thickRingOut()
+            self.thinRingOut()
+            self.dashedRingsOut()
+        }
+        
+        delayWork(time: 1.5) {
+            self.revealHideDividingLins(target: 1)
+        }
+        
+        delayWork(time: 2.5) {
+            self.animIn()
+        }
+        
+    }
+    
+    func animIn() {
+        delayWork(time: 0.25) {
+            self.revealHideDividingLins(target: 0)
+        }
+        
+        delayWork(time: 1.0) {
+            self.thickRingIn()
+            self.thinRingIn()
+            self.dashedRingsIn()
+        }
+        
+        delayWork(time: 2.0) {
+            self.animOut()
         }
     }
 }

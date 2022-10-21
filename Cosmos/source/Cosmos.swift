@@ -4,8 +4,8 @@ import UIKit
 
 class Cosmos: UIView {
     
-    var stars: Stars!
-    var menu: Menu!
+    private var stars: Stars!
+    private var menu: Menu!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

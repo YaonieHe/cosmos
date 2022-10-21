@@ -33,7 +33,7 @@ public class StarsBig : InfiniteScrollView {
     }
     
     
-    func addDashes() {
+    private func addDashes() {
         let points = (CGPoint(x: 0, y: frame.maxY), CGPoint(x: contentSize.width, y: frame.maxY))
         
         let line = Line(begin: points.0, end: points.1)
@@ -45,7 +45,7 @@ public class StarsBig : InfiniteScrollView {
         self.addSubview(line)
     }
     
-    func addMarkers() {
+    private func addMarkers() {
         for i in 0...AstrologicalSignProvider.sharedInstance.order.count {
             let dx = CGFloat(i) * frame.width * gapBetweenSigns + frame.width / 2
             let begin = CGPoint(x: dx, y: frame.height - 20)
@@ -61,7 +61,7 @@ public class StarsBig : InfiniteScrollView {
     }
     
     
-    func createSmallSign(name: String) -> CAShapeLayer? {
+    private func createSmallSign(name: String) -> CAShapeLayer? {
         guard let sign = AstrologicalSignProvider.sharedInstance.get(sign: name) else {
             return nil
         }
@@ -76,7 +76,7 @@ public class StarsBig : InfiniteScrollView {
         return smallSine
     }
     
-    func createSmallSignTitle(name: String, font: UIFont) -> UILabel {
+    private func createSmallSignTitle(name: String, font: UIFont) -> UILabel {
         let label = UILabel()
         label.text = name
         label.textColor = .white
@@ -86,11 +86,11 @@ public class StarsBig : InfiniteScrollView {
         return label
     }
     
-    func createSmallSignDegree(degree: Int, font: UIFont) -> UILabel {
+    private func createSmallSignDegree(degree: Int, font: UIFont) -> UILabel {
         return createSmallSignTitle(name: "\(degree)", font: font)
     }
     
-    func addSignNames() {
+    private func addSignNames() {
         var signNames = AstrologicalSignProvider.sharedInstance.order
         signNames.append(signNames[0])
         
